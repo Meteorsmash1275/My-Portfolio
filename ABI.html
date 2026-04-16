@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ron Gabriel L. Segovia | Personal Intel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --tactical-dark: #0a0c0a;
+            --tactical-gray: #1a1c1a;
+            --olive-drab: #3d422f;
+            --amber-optic: #ff9f1c;
+            --danger-red: #e63946;
+            --tactical-green: #2a9d8f;
+            --text-primary: #e0e0e0;
+            --text-muted: #888;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--tactical-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            min-height: 100vh;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(45, 45, 45, 0.1) 2px, rgba(45, 45, 45, 0.1) 4px),
+                radial-gradient(circle at 20% 50%, rgba(255, 159, 28, 0.05) 0%, transparent 50%);
+        }
+
+        /* Tactical Header (Replacing Sidebar) */
+        .header-section {
+            position: relative;
+            padding: 3rem 2rem 2rem;
+            background: linear-gradient(180deg, rgba(15,17,16,0.95) 0%, rgba(26,28,26,0.95) 100%);
+            border-bottom: 2px solid var(--olive-drab);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--amber-optic), transparent, var(--amber-optic));
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .profile-frame {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--amber-optic);
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            background: var(--tactical-gray);
+            box-shadow: 0 0 20px rgba(255, 159, 28, 0.2);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            background: linear-gradient(135deg, #1a1c1a 0%, #2a2c2a 100%);
+        }
+
+        .operator-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 159, 28, 0.3);
+        }
+
+        .birth-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .birth-date {
+            color: var(--amber-optic);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        .zodiac-sign {
+            background: rgba(255, 159, 28, 0.2);
+            border: 1px solid var(--amber-optic);
+            color: var(--amber-optic);
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--olive-drab);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .contact-item strong {
+            color: var(--tactical-green);
+            font-weight: 400;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-icon {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--amber-optic);
+            font-size: 1.5rem;
+            border: 1px solid var(--amber-optic);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, rgba(26,28,26,0.9) 0%, rgba(10,12,10,0.9) 100%);
+            border: 1px solid var(--olive-drab);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--amber-optic);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--amber-optic);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255,159,28,0.1);
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .skill-name {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--amber-optic);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .skill-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Social Section */
+        .social-section {
+            background: rgba(26,28,26,0.6);
+            border-top: 1px solid var(--olive-drab);
+            border-bottom: 1px solid var(--olive-drab);
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .social-title {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-subtitle {
+            color: var(--text-muted);
+            font-family: 'Share Tech Mono', monospace;
+            margin-bottom: 2rem;
+        }
+
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-btn {
+            background: var(--tactical-gray);
+            border: 1px solid var(--olive-drab);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 150px;
+            justify-content: center;
+        }
+
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,159,28,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .social-btn:hover {
+            border-color: var(--amber-optic);
+            color: var(--amber-optic);
+            text-shadow: 0 0 8px rgba(255,159,28,0.5);
+        }
+
+        .social-btn:hover::before {
+            left: 100%;
+        }
+
+        /* About Section */
+        .about-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            background: rgba(26,28,26,0.5);
+            border-left: 3px solid var(--amber-optic);
+            border-right: 3px solid var(--amber-optic);
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+
+        .highlight {
+            color: var(--amber-optic);
+            font-weight: 600;
+        }
+
+        footer {
+            padding: 3rem 2rem;
+            background: var(--tactical-gray);
+            border-top: 1px solid var(--olive-drab);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .footer-status {
+            color: var(--tactical-green);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .operator-name {
+                font-size: 1.8rem;
+            }
+            .contact-bar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .birth-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tactical Header -->
+    <header class="header-section">
+        <div class="profile-frame">
+            <div class="profile-img">◉</div>
+        </div>
+        
+        <h1 class="operator-name">Ron Gabriel L. Segovia</h1>
+        
+        <div class="birth-info">
+            <span class="birth-date">JAN 23, 2007</span>
+            <div class="zodiac-sign">
+                <span>♒</span>
+                <span>AQUARIUS</span>
+            </div>
+        </div>
+
+        <div class="contact-bar">
+            <div class="contact-item">
+                <span>LOC:</span>
+                <strong>Purok 16, Pob. Kapatagan, Lanao del Norte</strong>
+            </div>
+            <div class="contact-item">
+                <span>ZIP:</span>
+                <strong>9214</strong>
+            </div>
+            <div class="contact-item">
+                <span>COMMS:</span>
+                <strong style="color: var(--amber-optic);">0939-239-5278</strong>
+            </div>
+        </div>
+    </header>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="section-header">
+            <div class="section-icon">▸</div>
+            <h2 class="section-title">Capabilities</h2>
+        </div>
+        
+        <div class="skills-grid">
+            <div class="skill-card">
+                <span class="skill-icon">🎮</span>
+                <h3 class="skill-name">Playing</h3>
+                <p class="skill-desc">Strategic gaming and tactical operations with focus on precision and adaptability in various environments.</p>
+            </div>
+            
+            <div class="skill-card">
+                <span class="skill-icon">🍳</span>
+                <h3 class="skill-name">Cooking</h3>
+                <p class="skill-desc">Field ration preparation and culinary operations under various conditions. Resource management and meal planning.</p>
+            </div>
+            
+            <div class="skill-card">
+                <span class="skill-icon">✨</span>
+                <h3 class="skill-name">Cleaning</h3>
+                <p class="skill-desc">Area sanitation and organization protocols. Maintaining operational readiness through systematic cleanliness.</p>
+            </div>
+            
+            <div class="skill-card">
+                <span class="skill-icon">📚</span>
+                <h3 class="skill-name">Studying</h3>
+                <p class="skill-desc">Continuous intelligence gathering and knowledge acquisition. Tactical learning and information processing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Connect Section -->
+    <section class="social-section">
+        <div class="social-container">
+            <h2 class="social-title">Communication Channels</h2>
+            <p class="social-subtitle">ESTABLISH SECURE CONNECTION</p>
+            
+            <div class="social-grid">
+                <a href="https://www.facebook.com/share/14WtVsEVxow/" target="_blank" class="social-btn">
+                    <span>[</span> FACEBOOK <span>]</span>
+                </a>
+                
+                <a href="#" class="social-btn">
+                    <span>[</span> INSTAGRAM <span>]</span>
+                </a>
+                
+                <a href="#" class="social-btn">
+                    <span>[</span> TWITTER <span>]</span>
+                </a>
+                
+                <a href="#" class="social-btn">
+                    <span>[</span> EMAIL <span>]</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section style="padding: 4rem 2rem;">
+        <div class="about-section">
+            <h2 style="font-family: 'Share Tech Mono', monospace; color: var(--amber-optic); margin-bottom: 1.5rem; font-size: 1.5rem; letter-spacing: 2px;">// PERSONNEL FILE</h2>
+            <p class="about-text">
+                Operative <span class="highlight">Ron Gabriel L. Segovia</span>, born <span class="highlight">January 23, 2007</span>, 
+                Aquarius classification. Based in <span class="highlight">Purok 16, Kapatagan, Lanao del Norte</span>. 
+                Specialized in multi-domain operations including recreational tactics, culinary support, 
+                area maintenance, and intelligence development. Currently active and accepting communications 
+                via primary channel <span class="highlight">0939-239-5278</span>.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-status">● ONLINE // STATUS: OPERATIONAL</div>
+        <p>RON GABRIEL L. SEGOVIA | JAN 23 2007 | ♒ AQUARIUS</p>
+        <p style="margin-top: 0.5rem;">PUROK 16, KAPATAGAN, LANAO DEL NORTE 9214</p>
+        <p style="margin-top: 0.5rem;">COMMS: 0939-239-5278</p>
+        <p style="margin-top: 1.5rem; opacity: 0.5;">TACTICAL NETWORK v2.4.1 // SECURE CONNECTION</p>
+    </footer>
+
+    <script>
+        // Animate skill cards on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
+
+</body>
+</html>
